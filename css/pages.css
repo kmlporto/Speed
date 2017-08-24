@@ -26,16 +26,18 @@ header.menu{
 	align-items: center;
 }
 header.menu img{
-  height:60px;
-  width:245px;
+  height:50px;
+  width:160px;
   padding-left: 3%; 
 }
-header.menu li a:hover{
-	transition: 0.4s;
-	border-bottom: solid 2px #EA9C32;
-	border-top: solid 2px #EA9C32;
-	font-size: 1.5em;
-	color:#EA9C32;
+@media all and (min-width: 1024px){
+	header.menu li a:hover{
+		transition: 0.4s;
+		border-bottom: solid 2px #EA9C32;
+		border-top: solid 2px #EA9C32;
+		font-size: 1.5em;
+		color:#EA9C32;
+	}
 }
 ul.menu.lista{ 
 	padding: 0 3%;
@@ -50,24 +52,28 @@ ul.menu.lista{
 	text-align: center;
 }
 li.home{
-  grid-area:"home";
+  grid-area:home;
 }
 li.the-company{
-  grid-area:"the-company";
+  grid-area:the-company;
 }
 li.services{
-  grid-area:"services";
+  grid-area:services;
 }
 li.contact{
-  grid-area:"contact";
+  grid-area:contact;
 }
-
+@media all and (max-width: 450px){
+  header.menu img{
+    display: none;
+  }
+}
 
 /*todas as paginas*/
 h1{
 	background-color: #fff;
 	border-bottom: solid 1px #b46bdb;
-	grid-area: "titulo";
+	grid-area: titulo;
 	width: 100%;
 	height: 3em;
 	display: flex;
@@ -101,13 +107,13 @@ main#the-company{
 	padding: 20px 20%;
 }
 section#about{
-	grid-area:"about";
+	grid-area:about;
 }
 section#client{
-	grid-area:"client";
+	grid-area:client;
 }
 section#promocao{
-	grid-area:"promocao";
+	grid-area:promocao;
 	text-align: center;
 }
 section.the-company .first{
@@ -126,7 +132,11 @@ ul.clientes li.cliente img{
 	border-radius: 50%;
 	border: solid 1px #000;
 }
-
+@media all and (max-width: 450px){
+	main#the-company{
+		padding: 0 0;
+	}
+}
 
 /*serviços*/
 
@@ -147,16 +157,16 @@ section.servicos.pages{
 	padding: 5% 10%;
 }
 section#tele-chamado.servicos{
-	grid-area:"tele-chamado";
+	grid-area:tele-chamado;
 }
 section#entrega-normal.servicos{
-	grid-area:"entrega-normal";
+	grid-area:entrega-normal;
 }
 section#entrega-expressa.servicos{
-	grid-area:"entrega-expressa";
+	grid-area:entrega-expressa;
 }
 section#contrato-motociclista-fixo.servicos{
-	grid-area:"contrato-motociclista-fixo";
+	grid-area:contrato-motociclista-fixo;
 }
 button.saiba-mais{
 	outline: none;
@@ -178,7 +188,15 @@ section.servicos:nth-child(odd){
 section.servicos:nth-child(even){
 	background-color: #fff; 
 }
+@media all and (max-width: 450px){
+	main#service{
+		padding: 5% 5%;
+	}
+	img.form-contato, iframe{
+		display: none;
+	}
 
+}
 
 
 /*contato*/
@@ -199,10 +217,16 @@ main.contatos section{
 @media all and (max-width: 770px){
 	main.contatos section{
 	padding: 20px 0.9%;
+	
+	}
+}
+@media all and (max-width: 770px){
+	main.contatos section{
+
 	}
 }
 div.conteudo{
-	grid-area: "conteudo";
+	grid-area: conteudo;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -211,7 +235,7 @@ div.conteudo{
 	padding: 15px 0;
 }
 div.conteudo#contato{
-	grid-area: "conteudo";
+	grid-area: conteudo;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -256,6 +280,8 @@ input.btn{
 	border: solid 1px #b46bdb;
 	color: #b46bdb;
 	cursor: pointer;
+	margin-top:20px;
+	margin-left: 220px; 
 }
 input.btn:hover{
 	transition: 0.4s;
@@ -271,8 +297,13 @@ ul#cont{
 	align-items: center;
 	text-align: justify;
 	width: 100%;
-	height: 100px;
+	height: 65px;
 	background-color: #fff;
+}
+@media all and (max-width: 450px){
+	ul#cont{
+		flex-direction: column;
+	}
 }
 
 /*
@@ -320,30 +351,32 @@ footer .midia-social a{
   font-size: 1.3em;
   transition: .5s;
 }
-.midia-social a i:hover{
-  background-color:#EA9C32;
-  color:#733E8E;
-  animation-name: midiasocial;
-  animation-delay: .5s;
-  animation-duration: 1s;
-  animation-timing-function: linear;
-  animation-iteration-count: 1;
-}
-
-@keyframes midiasocial {
-	0%{
-	transform: rotate(0deg));
-	}
-	25%{
-	transform: rotate(90deg));
-	}
-	50%{
-	transform: rotate(180deg));
-	}
-	75%{
-	transform: rotate(270deg));
-	}
-	100%{
-		transform: rotate(360deg);
-	}
+@media all and (min-width: 1024px){
+  .midia-social a i:hover{
+    transition: 0.4s;
+    background-color:#EA9C32;
+    color:#733E8E;
+    animation-name: midiasocial;
+    animation-delay: .2s;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1;
+  }
+  @keyframes midiasocial {
+    0%{
+    transform: rotate(0deg));
+    }
+    25%{
+    transform: rotate(90deg));
+    }
+    50%{
+    transform: rotate(180deg));
+    }
+    75%{
+    transform: rotate(270deg));
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
 }

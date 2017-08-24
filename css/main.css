@@ -31,22 +31,25 @@ body{
     "main"
     "footer";
 }
-@media all and (max-width: 450px){
-  body{
-    background-image: none;
-    grid-template-areas:
-    "main"
-    "cabeçalho"
-    "footer";
-  }
-}
 main.principal{
   grid-area:main;
+  height: 130px;
 }
 footer{
   grid-area:footer;
 }
+@media all and (max-width: 450px){
+  body{
+    height: 900px;
+    background-image: none;
+    grid-template-rows: repeat (3, auto);
 
+    grid-template-areas:
+    "cabeçalho"
+    "main"
+    "footer";
+  }
+}
 /*header - menu*/ 
 header.menu{
   grid-area: cabeçalho;
@@ -55,9 +58,10 @@ header.menu{
   align-items: center;
 }
 header.menu img{
-  height:60px;
-  width:245px;
+  height:50px;
+  width:160px;
   padding-left: 4%; 
+  padding-bottom: 20px;
 }
 @media all and (max-width: 450px){
   header.menu{
@@ -69,8 +73,6 @@ header.menu img{
     width: 190px;
   }
 }
-
-
 
 @media all and (min-width: 1024px){
   header.menu li a:hover{
@@ -109,13 +111,14 @@ li.contact{
 }
 @media all and (max-width: 450px){
   ul.menu.lista{
-    justify-items:center;
+    grid-template-columns: auto;
     grid-template-areas:
     "the-company"
     "services"
     "contact";
   }
   li{
+    padding: 30% 0;
     text-align: center;
     border-bottom: 1px solid #fff;
   }
@@ -129,8 +132,11 @@ section.principal{
   flex-direction: column;
   justify-content: space-between;
   width: 300px; 
-  height: 150px;
-  padding: 10% 8%;
+  height: 220px;
+  padding: 10% 12%;
+}
+section.principal p{
+  display:none;
 }
 section.principal a{
   text-align: right;
@@ -140,6 +146,19 @@ section.principal h2, section.principal h3{
   color:#fff;
 }
 
+@media all and (max-width: 450px){
+  section.principal{
+    height: 300px;
+  }
+  section.principal a{
+    text-align: center;
+    margin-top: 20px;
+  }
+  section.principal p{
+    display: contents;
+    color:#FFF;
+  }
+}
 button.saiba-mais{
   outline: none;
   border: solid 1px #b46bdb;
